@@ -71,11 +71,12 @@ services:
     networks:
       - ${NETWORKS}
   wk-oidc-server:
-    image: zhangxiongbiao/oidc-server
+    image: vicalloy/oidc-server
     volumes:
       - ./config/uc/fixtures:/app/oidc_server/fixtures:z
       - ./data/uc/db:/app/db:z
       - ./data/uc/static_root:/app/static_root:z
+      - ./config/uc/templates/base.html:/app/oidc_server/templates/base.html
     restart: always
     env_file:
       - ./env.oidc-server
